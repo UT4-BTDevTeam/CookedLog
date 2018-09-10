@@ -9,16 +9,16 @@ When a server uses custom content that relies on plugin nodes, clients will only
 Therefore depending on the strength of that dependency stated above, this can be fine or ***critical***.
 
 Through extensive testing I figured the following :
-- Exposing new native ***nodes*** is fine. If your mutator graph has native nodes in them, it will not prevent clients from loading the mutator.
+- Exposing new ***native nodes*** is fine. If your mutator graph has native nodes in them, it will not prevent clients from loading the mutator.
 Upon loading, clients will log an error about failing to load some plugin/script, but it will work.
-Execution flows can even go through the native nodes, and continue as if nothing. Output pins will be set to default values.
-- Exposing new native ***objects*** is dangerous. Whether they are native Classes, Structs, or Enums.
-You can have custom objects in your plugin, but they must not be exposed to the graph.
+Execution flows can even go through the native nodes, and continue as if nothing. Output pins will remain at default values.
+- Exposing new ***native objects*** is dangerous. Whether they are native Classes, Structs, or Enums.
+You can have custom objects in your plugin, but they must not be exposed to the blueprint graph.
 When client tries to load an asset with native object references that don't resolve, game crashes.
-This may happens as soon as client opens the "start match" screen, as the game tries to load all mutators and gamemodes.
-And it will continue happening until client deletes offending PAK.
+This may happen as soon as client opens the "start match" screen, as the game tries to load all mutators and gamemodes.
+And it will keep happening until client deletes offending PAK.
 
-This does not necessarily matter if, for example, you make a server-side only mutator, and do not want to distribute the mutator without the plugin.
+All this does not necessarily matter if, for example, you make a server-side-only mutator, and do not want to distribute the mutator without the plugin.
 That is why I came up with this naming for "instrusive" and "non-intrusive" nodes.
 
 Non-intrusive nodes can be used for assets that are going to be sent to clients, knowing those clients will not have the plugin.
