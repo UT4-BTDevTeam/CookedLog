@@ -12,7 +12,7 @@ Through extensive testing I figured the following :
 - Exposing new ***native nodes*** is fine. If your mutator graph has native nodes in them, it will not prevent clients from loading the mutator.
 Upon loading, clients will log an error about failing to load some plugin/script, but it will work.
 Execution flows can even go through the native nodes, and continue as if nothing. Output pins will remain at default values.
-- Exposing new ***native objects*** is dangerous. Whether they are native Classes, Structs, or Enums.
+- Exposing new ***native objects*** is dangerous. Whether it is a native Class, Struct, or Enum, even if it is just exposed through an output pin.
 You can have custom objects in your plugin, but they must not be exposed to the blueprint graph.
 When client tries to load an asset with native object references that don't resolve, game crashes.
 This may happen as soon as client opens the "start match" screen, as the game tries to load all mutators and gamemodes.
