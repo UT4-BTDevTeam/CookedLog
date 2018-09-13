@@ -1,6 +1,22 @@
 # CookedLog
 UT4 c++ plugin exposing nonintrusive blueprint nodes for logging in shipped game
 
+
+## Installing plugin
+Download repository ZIP, extract, and paste the entire folder into the `Engine/Plugins/Runtime/` folder of your UT build.
+
+Make sure the result path looks like this :
+```bash
+# editor
+UTEditor/Engine/Plugins/Runtime/CookedLog-master/Binaries/Win64/UE4Editor-CookedLog.dll
+# game
+UT/Engine/Plugins/Runtime/CookedLog-master/Binaries/Win64/UE4-CookedLog-Win64-Shipping.dll
+# game LAN server
+UT/WindowsServer/Engine/Plugins/Runtime/CookedLog-master/Binaries/Win64/UE4Server-CookedLog-Win64-Shipping.dll
+# linux server
+UTServer/Engine/Plugins/Runtime/CookedLog-master/Binaries/Linux/libUE4Server-CookedLog-Linux-Shipping.so
+```
+
 ## About "non-intrusive" blueprint nodes
 When a blueprint uses native nodes from a plugin, it creates a ***dependency*** between the PAK and the plugin.
 This dependency can be ***weaker*** or ***stronger*** depending on cases.
